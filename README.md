@@ -1,27 +1,91 @@
-# NgxSignInRedirect
+# @nowzoo/ngx-sign-in-redirect
+
+A service and component for displaying app messages.
+
+[Demo](https://nowzoo.github.io/ngx-sign-in-redirect/)
+|
+[Demo Source Code](https://github.com/nowzoo/ngx-sign-in-redirect/tree/master/projects/ngx-sign-in-redirect-demo/src/app)
+
+[Documentation](https://nowzoo.github.io/ngx-sign-in-redirect/docs/)
+
+
+
+## Quick start
+
+```bash
+npm i @nowzoo/ngx-sign-in-redirect save
+```
+
+Import the module...
+```typescript
+import { NgxSignInRedirectModule } from '@nowzoo/ngx-sign-in-redirect';
+@NgModule({
+  imports: [
+    NgxSignInRedirectModule.forRoot()
+  ],
+})
+export class AppModule { }
+```
+
+
+
+Use the service in your components...
+```typescript
+import { NgxSignInRedirectService } from '@nowzoo/ngx-sign-in-redirect';
+
+export class MyGatedComponent implements OnInit {
+
+  constructor(
+    private svc: NgxSignInRedirectService,
+    private auth: SomeAuthService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    if (! this.auth.signedIn) {
+      this.svc.redirect = '/my/gated/path';
+      this.router.navigate(['/sign-in']);
+    }
+  }
+
+}
+
+export class MySignInComponent implements OnInit {
+
+  constructor(
+    private svc: NgxSignInRedirectService,
+    private auth: SomeAuthService,
+  ) { }
+
+  signIn(creds: any) {
+    this.auth.signIn(creds)
+      .then(() => {
+        this.svc.redirectOnSignIn();
+      })
+  }
+
+}
+
+```
+
+## Contributing
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.4.
 
-## Development server
+`git clone https://github.com/nowzoo/ngx-sign-in-redirect.git`
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+The library code is in `projects/ngx-sign-in-redirect`.
 
-## Code scaffolding
+The demo is in `projects/ngx-sign-in-redirect-demo`
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Build the library: `ng build ngx-sign-in-redirect`
 
-## Build
+Serve the demo locally:  `ng serve ngx-sign-in-redirect-demo`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Unit tests
 
-## Running end-to-end tests
+Run `ng test ngx-sign-in-redirect` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The library tests can also be run with Wallaby. Select the wallaby.js file in `projects/ngx-sign-in-redirect`;

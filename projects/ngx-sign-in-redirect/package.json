@@ -1,8 +1,17 @@
 {
-  "name": "ngx-sign-in-redirect",
-  "version": "0.0.1",
-  "peerDependencies": {
-    "@angular/common": "^7.1.0",
-    "@angular/core": "^7.1.0"
-  }
+	"name": "@nowzoo/ngx-sign-in-redirect",
+	"version": "0.0.7",
+	"peerDependencies": {
+		"@angular/common": "^7.0.0",
+		"@angular/core": "^7.0.0",
+		"@angular/router": "^7.0.0"
+	},
+	"description": "Angular service for saving sign in redirect URLs.",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nowzoo/ngx-sign-in-redirect.git"
+	},
+	"bugs": "https://github.com/nowzoo/ngx-sign-in-redirect/issues",
+	"homepage": "https://nowzoo.github.io/ngx-sign-in-redirect"
 }

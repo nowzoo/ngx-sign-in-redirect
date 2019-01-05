@@ -1,0 +1,9 @@
+<div class="form-group">
+  <label for="inp">Set the redirect...</label>
+  <input type="text" id="inp" (blur)="setRedirect()" class="form-control" [(ngModel)]="inputRedirect">
+</div>
+
+<div class="form-group">
+  <label>Stored value...</label>
+  <code>{{service.redirect | json}}</code>
+</div>

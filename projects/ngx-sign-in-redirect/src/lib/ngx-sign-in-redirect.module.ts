@@ -8,8 +8,7 @@ const defaultConfig: INgxSignInRedirectConfig = {
 };
 @NgModule({
   declarations: [],
-  imports: [
-  ],
+  imports: [],
   exports: []
 })
 export class NgxSignInRedirectModule {
