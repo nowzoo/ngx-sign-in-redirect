@@ -17,6 +17,14 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ngx-sign-in-redirect": [
+        "dist/ngx-sign-in-redirect"
+      ],
+      "ngx-sign-in-redirect/*": [
+        "dist/ngx-sign-in-redirect/*"
+      ]
+    }
   }
 }
